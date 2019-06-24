@@ -14,5 +14,6 @@
 $router->group(['prefix' => 'api'], function () use ($router) {
 
     $router->post('product', ['uses' => 'ProductController@saveProduct']);
+    $router->get('product/{id}', ['uses' => 'ProductController@getProduct']);
 
 });

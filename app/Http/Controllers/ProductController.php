@@ -37,4 +37,25 @@ class ProductController extends Controller
         return $this->successResponse($product, 200);
     }
 
+    public function getProduct($productID)
+    {
+
+        if (empty($productID)) {
+            return $this->errorResponse([
+                'code' => '678',
+                'message' => 'Product ID is not provided'
+            ], 400);
+        }
+
+        $product = Product::find($productID);
+        if (is_null($product)) {
+            return $this->errorResponse([
+                'code' => '910',
+                'message' => 'Product not found'
+            ], 400);
+        }
+
+        return $this->successResponse($product, 200);
+    }
+
 }
