@@ -34,7 +34,7 @@ class ProductController extends Controller
             ], 400);
         }
 
-        return $this->successResponse($product, 200);
+        return $this->successResponse($product, 201);
     }
 
     public function updateProduct(Request $request, $productID)
