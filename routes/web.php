@@ -11,6 +11,11 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->group(['prefix' => 'api'], function () use ($router) {
+
+    $router->post('product', ['uses' => 'ProductController@saveProduct']);
+    $router->put('product/{id}', ['uses' => 'ProductController@updateProduct']);
+    $router->get('product/{id}', ['uses' => 'ProductController@getProduct']);
+    $router->delete('product/{id}', ['uses' => 'ProductController@deleteProduct']);
+
 });
