@@ -3,6 +3,9 @@ Sample REST API using laravel lumen micro-framework.
 
 ## Setup
 
+#### Install dependencies
+Run command `composer install`
+
 #### Configuration
 
 1. Rename `.env.sample` into `.env`, and configure the proper configuration value, especially for the database configuration.
