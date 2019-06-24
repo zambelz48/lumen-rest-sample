@@ -96,4 +96,25 @@ class ProductController extends Controller
         return $this->successResponse($product, 200);
     }
 
+    public function deleteProduct($productID)
+    {
+        $product = Product::find($productID);
+
+        if (is_null($product)) {
+            return $this->errorResponse([
+                'code' => '112',
+                'message' => 'Product not found'
+            ], 400);
+        }
+
+        if (!$product->delete()) {
+            return $this->errorResponse([
+                'code' => '678',
+                'message' => 'Failed to delete data from database'
+            ], 400);
+        }
+
+        return $this->successResponse([ $product->_id ], 200);
+    }
+
 }
